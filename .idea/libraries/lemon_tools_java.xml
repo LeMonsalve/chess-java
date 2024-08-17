@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="lemon-tools-java">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/lemon-tools-java.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
