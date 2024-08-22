@@ -2,12 +2,12 @@ package university.jala.chess.console;
 
 import com.lemonsalve.tools.generation.Generator;
 import java.util.List;
-import university.jala.chess.base.Chess;
-import university.jala.chess.base.ChessConfiguration;
-import university.jala.chess.base.ChessState;
-import university.jala.chess.formater.Formater;
-import university.jala.chess.sorter.Sorter;
-import university.jala.chess.tokens.Token;
+import university.jala.chess.core.base.Chess;
+import university.jala.chess.core.base.ChessConfiguration;
+import university.jala.chess.core.base.ChessState;
+import university.jala.chess.core.formater.Formater;
+import university.jala.chess.core.sorter.Sorter;
+import university.jala.chess.core.tokens.Token;
 
 public class ConsoleChess extends Chess {
 
