@@ -4,8 +4,7 @@ public enum AlgorithmType {
   NONE("", "None"),
   INSERTION_SORT("i", "Insertion Sort"),
   BUBBLE_SORT("b", "Bubble Sort"),
-  QUICK_SORT("q", "Quick Sort"),
-  ;
+  QUICK_SORT("q", "Quick Sort");
 
   private final String identifier;
   private final String value;
