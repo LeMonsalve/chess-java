@@ -19,12 +19,11 @@ public abstract class AbstractTokenGenerator implements Generator<Token> {
 
   @Override
   public Token generate() {
-    return getAvailableToken()
-      .orElseThrow(() -> new IllegalStateException("No more tokens available"));
+    return getAvailableToken().orElse(null);
   }
 
   @Override
-  public List<Token> generateMany(int amount) {
+  public List<Token> generateMany(final int amount) {
     final List<Token> tokens = new ArrayList<>();
     for (int index = 0; index < amount; index++) {
       tokens.add(generate());

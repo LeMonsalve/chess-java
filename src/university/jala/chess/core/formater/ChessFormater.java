@@ -9,6 +9,7 @@ import university.jala.chess.core.base.ChessState;
 import university.jala.chess.core.colors.ColorType;
 import university.jala.chess.core.tokens.Token;
 import university.jala.chess.core.tokens.TokenType;
+import university.jala.chess.core.tokens.TokenTypeNotFoundException;
 
 public class ChessFormater implements Formater<ChessState> {
 
@@ -19,8 +20,9 @@ public class ChessFormater implements Formater<ChessState> {
     return switch (state.configuration().tokenType()) {
       case NUMERIC -> formatTokenWithInt(state, Token::getOrderLevel);
       case CHARACTERISTIC -> formatTokenWithString(state, Token::getIdentifier);
-      default ->
-        throw new IllegalStateException("Unexpected value: " + state.configuration().tokenType());
+      default -> throw new TokenTypeNotFoundException(
+        "Token type: " + state.configuration().tokenType() + " not found"
+      );
     };
   }
 

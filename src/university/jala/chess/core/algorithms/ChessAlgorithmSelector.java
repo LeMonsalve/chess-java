@@ -15,7 +15,7 @@ public final class ChessAlgorithmSelector {
       case QUICK_SORT -> new QuickSortAlgorithm<>();
       case BUBBLE_SORT -> new BubbleSortAlgorithm<>();
       case INSERTION_SORT -> new InsertSortAlgorithm<>();
-      default -> throw new IllegalStateException("Unexpected value: " + algorithmType);
+      default -> throw new AlgorithmNotFoundException("Unexpected value: " + algorithmType);
     };
   }
 }

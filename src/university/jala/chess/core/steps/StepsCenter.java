@@ -7,6 +7,7 @@ import java.util.Map;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 import university.jala.chess.core.tokens.Token;
+import university.jala.chess.core.tokens.TokenNotFoundException;
 
 public class StepsCenter {
 
@@ -48,7 +49,7 @@ public class StepsCenter {
     for (int code : codes) {
       Token token = Token.fromOrderLevel(code);
       if (token == null) {
-        throw new IllegalArgumentException("Invalid token order level: " + code);
+        throw new TokenNotFoundException("Token with order level: " + code + " not found");
       }
 
       tokens.add(token);
