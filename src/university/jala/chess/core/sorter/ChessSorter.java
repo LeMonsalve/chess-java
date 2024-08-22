@@ -2,6 +2,7 @@ package university.jala.chess.core.sorter;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
 import university.jala.chess.core.algorithms.AlgorithmExecutor;
 import university.jala.chess.core.tokens.Token;
 
@@ -14,7 +15,7 @@ public class ChessSorter implements Sorter<List<Token>> {
   }
 
   @Override
-  public List<Token> sort(final List<Token> items) {
+  public List<Token> sort(final @NotNull List<Token> items) {
     List<Token> sortedItems;
     List<Integer> integerItems = items.stream().map(Token::getOrderLevel).toList();
 
@@ -24,7 +25,7 @@ public class ChessSorter implements Sorter<List<Token>> {
     return sortedItems;
   }
 
-  public List<Token> convertIntegersToTokens(List<Integer> integerItems) {
+  public List<Token> convertIntegersToTokens(@NotNull List<Integer> integerItems) {
     List<Token> tokens = new ArrayList<>();
 
     for (Integer item : integerItems) {

@@ -27,7 +27,8 @@ public final class ChessParametersValidationFilter {
   private ChessParametersValidationFilter() {
   }
 
-  public static @NotNull ChessConfiguration validate(final Map<String, String> parameters) {
+  public static @NotNull ChessConfiguration validate(
+    final @NotNull Map<String, String> parameters) {
     final IntValidator intListValidator = new IntValidator().inList(List.of(1, 2, 4, 6, 8, 16));
     final IntValidator pauseMillisecondsValidator = new IntValidator().minValue(100).maxValue(1000);
     final StringValidator oneCharacterValidator = new StringValidator()
