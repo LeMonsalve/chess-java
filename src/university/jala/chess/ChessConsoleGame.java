@@ -23,6 +23,7 @@ public class ChessConsoleGame {
     chess.setup();
     chess.logState();
     chess.start();
+    chess.logGameDuration();
   }
 
 }

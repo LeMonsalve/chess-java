@@ -116,7 +116,11 @@ public class ConsoleBoard extends Board {
     final @NotNull Queue<Step> steps,
     final @NotNull ChessConfiguration configuration
   ) {
-    int totalStepsTime = configuration.pauseMilliseconds() * steps.size();
+    int totalStepsTime =
+      configuration.pauseMilliseconds() != 0
+        ? configuration.pauseMilliseconds() * steps.size()
+        : steps.size();
+
     String header = String.format("""
       WELCOME TO CHESS!
       Tokens were ordered in %d steps

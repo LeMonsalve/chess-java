@@ -1,6 +1,8 @@
 package university.jala.chess.engine.base;
 
 import com.lemonsalve.tools.generation.Generator;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 import java.util.logging.Logger;
 import university.jala.chess.engine.board.Board;
@@ -14,12 +16,13 @@ import university.jala.chess.engine.tokens.Tokens;
 public abstract class Chess {
 
   private static final Logger logger = Logger.getLogger(Chess.class.getName());
-
   private final ChessState state;
   private final Formater<ChessState> stateFormater;
   private final Sorter<List<Token>> tokensSorter;
   private final Generator<Token> tokenGenerator;
   private final Board board;
+  private final Instant startInstant;
+  private Instant endInstant;
 
   protected Chess(
     final ChessConfiguration configuration,
@@ -35,6 +38,7 @@ public abstract class Chess {
     this.tokensSorter = tokensSorter;
     this.tokenGenerator = tokenGenerator;
     this.board = board;
+    this.startInstant = Instant.now();
   }
 
   public abstract void setup();
@@ -68,7 +72,17 @@ public abstract class Chess {
     return tokensSorter;
   }
 
-  public Board getBoard() {
+  protected Board getBoard() {
     return board;
+  }
+
+  protected void setEndInstant(final Instant endInstant) {
+    this.endInstant = endInstant;
+  }
+
+  public void logGameDuration() {
+    final long millis = Duration.between(startInstant, endInstant).toMillis();
+    final String message = "Chess game took " + millis + " milliseconds.";
+    logger.info(message);
   }
 }

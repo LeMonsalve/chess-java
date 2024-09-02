@@ -1,6 +1,7 @@
 package university.jala.chess.console.chess;
 
 import com.lemonsalve.tools.generation.Generator;
+import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import university.jala.chess.engine.base.Chess;
@@ -40,6 +41,7 @@ public class ConsoleChess extends Chess {
   public void start() {
     final Board board = getBoard();
     board.start();
+    setEndInstant(Instant.now());
   }
 
   private void sortTokens() {
